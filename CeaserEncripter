@@ -1,0 +1,18 @@
+def CeaserEcripter(key, plainText):
+    cipherText = ""
+    key = ord(key.lower()) - ord('a')
+    for char in plainText:
+        char = char.lower()
+        if char == ' ':
+            cipherText += ' '
+        else: 
+            cipherText += chr((ord(char) + key - ord('a')) % 26 + ord('a'))
+    return cipherText
+
+
+text = "kiTtEns aRE CUte"
+key = 'G'
+
+print("Plain Text : " + text)
+print("Shift pattern : " + key)
+print("Cipher: " + CeaserEcripter(key,text))

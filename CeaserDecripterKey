@@ -1,0 +1,18 @@
+def CeaserDecripter(key, cipherText):
+    plainText = ""
+    key = ord(key.lower()) - ord('a')
+    for char in cipherText:
+        char = char.lower()
+        if char == ' ':
+            plainText += ' '
+        else: 
+            plainText += chr((ord(char) - key - ord('a')) % 26 + ord('a'))
+    return plainText
+
+
+text = "wtaad ldgas"
+key = 'P'
+
+print("Cipher : " + text)
+print("Shift pattern : " + key)
+print("Plain Text: " + CeaserDecripter(key,text))

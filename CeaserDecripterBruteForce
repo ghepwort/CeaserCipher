@@ -1,0 +1,38 @@
+def CeaserDecripterBruteForce(cipherText):
+
+
+
+    for key in range(25):
+        plainText = ""
+        for char in cipherText:
+            if char == ' ':
+                plainText += ' '
+            else: 
+                plainText += chr((ord(char) - key - ord('a')) % 26 + ord('a'))
+        seperated = plainText.split()
+        dictionary = open("dict.txt", "r")
+        line = dictionary.readline()
+        while line:
+            if line.strip() == seperated[1]:
+                print(plainText)
+            line = dictionary.readline()
+        dictionary.close
+
+
+    
+    return 
+
+
+CeaserDecripterBruteForce("qozzkty gxk iazk")
+
+# with open('dict.txt', 'r') as file:
+#     for line in file:
+#         print(line.strip())
+
+
+# dictionary = open("dict.txt", "r")
+# line = dictionary.readline()
+# while line:
+#     print(line.strip())
+#     line = dictionary.readline()
+# dictionary.close
